@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -36,6 +37,12 @@ func parseScore() {
 	res, _ := http.DefaultClient.Do(req)
 
 	body, _ := ioutil.ReadAll(res.Body)
+
+	scoreJSON := string(body)
+
+	var score []GameStats
+	json.Unmarshal([]byte(scoreJSON), &score)
+	fmt.Printf("Score: %+v", score)
 
 	fmt.Println(body[0])
 
