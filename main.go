@@ -3,8 +3,11 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -28,7 +31,7 @@ func parseScore() {
 	req, _ := http.NewRequest("GET", url, nil)
 
 	req.Header.Add("x-rapidapi-host", "therundown-therundown-v1.p.rapidapi.com")
-	req.Header.Add("x-rapidapi-key", "notAPIKkey")
+	req.Header.Add("x-rapidapi-key", loadAPI())
 
 	res, _ := http.DefaultClient.Do(req)
 
@@ -37,4 +40,13 @@ func parseScore() {
 
 	fmt.Println(res)
 	fmt.Println(string(body))
+}
+
+func loadAPI() (key string) {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+	key = os.Getenv("API_KEY")
+	return
 }
