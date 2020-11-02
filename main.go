@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"os"
 	"strconv"
@@ -43,6 +42,10 @@ func parseScore() {
 	var score []GameStats
 	json.Unmarshal([]byte(scoreJSON), &score)
 
+	for i := 0; i < len(score); i++ {
+		fmt.Println(score[i])
+	}
+
 	fmt.Println((score[0].Team))
 }
 
@@ -59,7 +62,8 @@ func str(intStr int) (str string) {
 func loadAPI() (key string) {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Error loading .env file")
+		fmt.Println("Error loading .env file")
+		os.Exit(1)
 	}
 	key = os.Getenv("API_KEY")
 	return
