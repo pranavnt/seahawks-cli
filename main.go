@@ -42,15 +42,8 @@ func parseScore() {
 
 	var score []GameStats
 	json.Unmarshal([]byte(scoreJSON), &score)
-	fmt.Printf("Score: %+v", score)
 
-	fmt.Println(body[0])
-
-	//fmt.Println(string(body))
-}
-
-func parseJSON() (team string, opponent string, teamScore string, opponentScore string) {
-	return
+	fmt.Println((score[0].Team))
 }
 
 func constructURL(season int, seasonType string, week int) (url string) {
