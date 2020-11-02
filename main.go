@@ -18,7 +18,9 @@ func main() {
 
 	switch os.Args[1] {
 	case "score":
-		fmt.Println("The seahawks score is...")
+		fmt.Println("getting scores")
+		parseScore()
+
 	default:
 		fmt.Println("command not recognized")
 		os.Exit(1)
