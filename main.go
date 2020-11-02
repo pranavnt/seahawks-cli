@@ -43,7 +43,7 @@ func parseScore() {
 }
 
 func constructURL(season int, seasonType string, week int) (url string) {
-	url = "https://api.sportsdata.io/v3/nfl/scores/json/TeamGameStats/" + season + seasonType + "/" + week + "?key=" + loadAPI()
+	url = "https://api.sportsdata.io/v3/nfl/scores/json/TeamGameStats/" + str(season) + seasonType + "/" + str(week) + "?key=" + loadAPI()
 	return
 }
 
