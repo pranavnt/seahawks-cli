@@ -28,12 +28,9 @@ func main() {
 }
 
 func parseScore() {
-	url := "https://therundown-therundown-v1.p.rapidapi.com/affiliates"
+	url := "https://api.sportsdata.io/v3/nfl/scores/json/TeamGameStats/2020REG/7?key=" + loadAPI()
 
 	req, _ := http.NewRequest("GET", url, nil)
-
-	req.Header.Add("x-rapidapi-host", "therundown-therundown-v1.p.rapidapi.com")
-	req.Header.Add("x-rapidapi-key", loadAPI())
 
 	res, _ := http.DefaultClient.Do(req)
 
