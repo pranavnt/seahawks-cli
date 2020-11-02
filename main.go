@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 
 	"github.com/joho/godotenv"
 )
@@ -42,6 +43,12 @@ func parseScore() {
 }
 
 func constructURL(season int, seasonType string, week int) (url string) {
+	url = "https://api.sportsdata.io/v3/nfl/scores/json/TeamGameStats/" + season + seasonType + "/" + week + "?key=" + loadAPI()
+	return
+}
+
+func str(intStr int) (str string) {
+	str = strconv.Itoa(intStr)
 	return
 }
 
