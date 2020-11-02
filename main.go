@@ -37,10 +37,9 @@ func parseScore() {
 
 	body, _ := ioutil.ReadAll(res.Body)
 
-	defer res.Body.Close()
+	fmt.Println(body[0])
 
-	fmt.Println(res)
-	fmt.Println(string(body))
+	//fmt.Println(string(body))
 }
 
 func constructURL(season int, seasonType string, week int) (url string) {
@@ -61,3 +60,5 @@ func loadAPI() (key string) {
 	key = os.Getenv("API_KEY")
 	return
 }
+
+type GameStats struct{}
