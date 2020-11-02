@@ -41,6 +41,10 @@ func parseScore() {
 	fmt.Println(string(body))
 }
 
+func constructURL(season int, seasonType string, week int) (url string) {
+	return
+}
+
 func loadAPI() (key string) {
 	err := godotenv.Load()
 	if err != nil {
