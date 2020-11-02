@@ -29,14 +29,15 @@ func main() {
 }
 
 func parseScore() {
-	url := "https://api.sportsdata.io/v3/nfl/scores/json/TeamGameStats/2020REG/7?key=" + loadAPI()
+	url := constructURL(2020, "REG", 7)
 
 	req, _ := http.NewRequest("GET", url, nil)
 
 	res, _ := http.DefaultClient.Do(req)
 
-	defer res.Body.Close()
 	body, _ := ioutil.ReadAll(res.Body)
+
+	defer res.Body.Close()
 
 	fmt.Println(res)
 	fmt.Println(string(body))
