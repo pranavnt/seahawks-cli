@@ -61,4 +61,9 @@ func loadAPI() (key string) {
 	return
 }
 
-type GameStats struct{}
+type GameStats struct {
+	Team          string
+	Opponent      string
+	Score         int
+	OpponentScore int
+}
