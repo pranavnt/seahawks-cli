@@ -19,7 +19,6 @@ func main() {
 
 	switch os.Args[1] {
 	case "score":
-		fmt.Println("getting scores")
 		parseScore()
 
 	default:
@@ -51,10 +50,16 @@ func parseScore() {
 		if homeTeam == "SEA" {
 			fmt.Println("Seahawks Score:")
 			fmt.Println(homeTeam + ": " + str(homeTeamScore))
+			fmt.Println(awayTeam + ": " + str(awayTeamScore))
+			break
+		} else if awayTeam == "SEA" {
+			fmt.Println("Seahawks Score:")
+			fmt.Println(awayTeam + ": " + str(awayTeamScore))
+			fmt.Println(homeTeam + ": " + str(homeTeamScore))
+			break
+		} else {
 		}
 	}
-
-	fmt.Println((score[0].Team))
 }
 
 func constructURL(season int, seasonType string, week int) (url string) {
