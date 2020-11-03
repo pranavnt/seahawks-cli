@@ -29,7 +29,7 @@ func main() {
 }
 
 func parseScore() {
-	url := constructURL(2020, "REG", 7)
+	url := constructURL(2020, "REG", 8)
 
 	req, _ := http.NewRequest("GET", url, nil)
 
@@ -43,7 +43,15 @@ func parseScore() {
 	json.Unmarshal([]byte(scoreJSON), &score)
 
 	for i := 0; i < len(score); i++ {
-		fmt.Println(score[i])
+		homeTeam := score[i].Team
+		awayTeam := score[i].Opponent
+		homeTeamScore := score[i].Score
+		awayTeamScore := score[i].OpponentScore
+
+		if homeTeam == "SEA" {
+			fmt.Println("Seahawks Score:")
+			fmt.Println(homeTeam + ": " + str(homeTeamScore))
+		}
 	}
 
 	fmt.Println((score[0].Team))
