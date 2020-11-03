@@ -1,3 +1,8 @@
+// This is my first Golang program!!
+// It's a CLI that gives you seahawks scores
+// if you have any feedback on this code, please create a an issue at https://github.com/pranavnt/seahawks-cli
+// it wouold be greatly appreciated :)
+
 package main
 
 import (
